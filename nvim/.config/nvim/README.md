@@ -109,6 +109,12 @@ Leader is `<Space>`.
 
 Inside Neo-tree window: `l` open, `Z` expand all nodes, `z` close all nodes.
 
+Dotfiles/dot-directories are hidden by default (`hide_dotfiles = true`), except for a whitelist
+of common config file/folder names (`.config`, `.gitconfig`, `.zshrc`, `.zshrc.secrets`,
+`.tmux.conf`, `.gitignore`) which always render normally via `filtered_items.always_show` — this
+keeps a dotfiles-style repo fully browsable without dimming, while dotfiles in unrelated
+projects stay hidden as usual.
+
 ### Harpoon
 
 | Keymap | Action |

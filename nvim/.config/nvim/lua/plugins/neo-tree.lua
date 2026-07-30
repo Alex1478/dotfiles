@@ -11,6 +11,14 @@ return {
     filesystem = {
       filtered_items = {
         always_show_by_pattern = { "Packages/**" },
+        always_show = {
+          ".config",
+          ".gitconfig",
+          ".zshrc",
+          ".zshrc.secrets",
+          ".tmux.conf",
+          ".gitignore",
+        },
         never_show = { ".DS_Store" },
       },
       follow_current_file = {
