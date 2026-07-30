@@ -6,8 +6,9 @@ vim.keymap.set('i', '<Down>', '<C-\\><C-o>gj', { desc = 'Navigate down (visual l
 vim.keymap.set('i', '<Up>', '<C-\\><C-o>gk', { desc = 'Navigate up (visual line)' })
 
 -- Move current line down / up with Alt-j / Alt-k in Normal mode
-vim.keymap.set("n", "<C-k>", ":m .-2<CR>==", { desc = "Move line up" })
-vim.keymap.set("n", "<C-j>", ":m .+1<CR>==", { desc = "Move line down" })
+-- (moved off <C-j>/<C-k> to free those for vim-tmux-navigator pane navigation)
+vim.keymap.set("n", "<A-k>", ":m .-2<CR>==", { desc = "Move line up" })
+vim.keymap.set("n", "<A-j>", ":m .+1<CR>==", { desc = "Move line down" })
 
 -- And in Visual mode, to move a whole selected block
 vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv", { desc = "Move block up" })
@@ -23,8 +24,8 @@ vim.keymap.set('n', '<leader>bb', '<C-^>', { desc = 'Switch to alternate buffer'
 vim.keymap.set('n', '<leader>bn', ':bnext<cr>', { desc = 'Next buffer' })
 vim.keymap.set('n', '<leader>bp', ':bprevious<cr>', { desc = 'Previous buffer' })
 
--- Ctrl-L redraws the screen by default. Now it will also toggle search highlighting.
-vim.keymap.set('n', '<C-l>', ':set hlsearch!<cr><C-l>', { desc = 'Toggle search highlighting' })
+-- Toggle search highlighting (moved off <C-l> to free it for vim-tmux-navigator)
+vim.keymap.set('n', '<leader>/', ':set hlsearch!<cr><C-l>', { desc = 'Toggle search highlighting' })
 
 -- Toggle visible whitespace characters
 vim.keymap.set('n', '<leader>l', ':listchars!<cr>', { desc = 'Toggle [l]istchars' })
@@ -32,16 +33,9 @@ vim.keymap.set('n', '<leader>l', ':listchars!<cr>', { desc = 'Toggle [l]istchars
 -- Split
 vim.keymap.set('n', '|', ':vsplit<CR>', { desc = 'vertical split', silent = true })
 vim.keymap.set('n', '_', ':split<CR>',   { desc = 'horizontal split', silent = true })
--- works in normal mode
-vim.keymap.set('n', '<M-h>', '<C-w>h', { desc = 'go to left split',  silent = true })
-vim.keymap.set('n', '<M-j>', '<C-w>j', { desc = 'go to below split', silent = true })
-vim.keymap.set('n', '<M-k>', '<C-w>k', { desc = 'go to above split', silent = true })
-vim.keymap.set('n', '<M-l>', '<C-w>l', { desc = 'go to right split', silent = true })
--- also works in terminal buffers
-vim.keymap.set('t', '<M-h>', [[<C-\><C-n><C-w>h]], { desc = 'term: left split',  silent = true })
-vim.keymap.set('t', '<M-j>', [[<C-\><C-n><C-w>j]], { desc = 'term: down split',  silent = true })
-vim.keymap.set('t', '<M-k>', [[<C-\><C-n><C-w>k]], { desc = 'term: up split',    silent = true })
-vim.keymap.set('t', '<M-l>', [[<C-\><C-n><C-w>l]], { desc = 'term: right split', silent = true })
+-- Split/pane navigation (<C-h/j/k/l>) is handled by vim-tmux-navigator (see
+-- lua/plugins/vim-tmux-navigator.lua), which also seamlessly moves between
+-- tmux panes when at the edge of the Neovim window.
 
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>', { desc = 'Clear search highlight' })
 

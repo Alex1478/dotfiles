@@ -1,8 +1,16 @@
 # macOS
 .DS_Store
 
-# Neovim swap/backup/undo files
+# Editor swap/backup files
 *.swp
 *.swo
 *~
-.netrwhist
+
+# Never track secrets, local overrides, or backup config files
+*.secrets
+*.secrets.*
+*.local
+*.bak
+
+# opencode's own node/bun artifacts (it has its own .gitignore too, kept as defense-in-depth)
+opencode/.config/opencode/node_modules

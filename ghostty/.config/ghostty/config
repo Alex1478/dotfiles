@@ -1,0 +1,9 @@
+# Theme
+theme = Catppuccin Mocha
+font-family = "JetBrainsMono Nerd Font"
+
+copy-on-select = true
+
+# Clipboard integration (macOS)
+clipboard-write = allow
+clipboard-read = allow
