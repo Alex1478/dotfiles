@@ -18,6 +18,28 @@ dotfiles/
 
 ## Install
 
+### New machine (automated)
+
+```sh
+git clone git@github.com:Alex1478/dotfiles.git ~/dotfiles
+cd ~/dotfiles
+./install.sh
+```
+
+`install.sh` is idempotent (safe to re-run) and:
+1. Installs Homebrew if missing
+2. Installs core tools (`stow`, `git`, `neovim`, `tmux`, `lazygit`, `starship`, `zoxide`, `ripgrep`, `fd`)
+3. Backs up any pre-existing real config files/dirs that would conflict (to `~/.dotfiles-backup-<timestamp>/`)
+4. Runs `stow` for all packages
+5. Creates an empty, untracked `~/.zshrc.secrets` template if one doesn't exist yet
+6. Clones tmux's plugin manager (TPM) if missing
+
+After running it: `exec zsh`, fill in `~/.zshrc.secrets` with your real tokens, open `nvim`
+(auto-installs plugins on first launch), then open `tmux` and press `prefix + I` to install
+tmux plugins.
+
+### Manual
+
 ```sh
 brew install stow
 cd ~/dotfiles

@@ -5,11 +5,6 @@
     "edit": "ask",                   // ask before editing files
     "bash": "allow"       
   },
-  // "lsp": {
-  //   "swift": {
-  //     "command": "sourcekit-lsp"
-  //   }
-  // },
   "autoupdate": true,
   "agent": {
     "code-reviewer": {
